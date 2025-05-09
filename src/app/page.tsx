@@ -1,6 +1,7 @@
-"use-client";
+"use client";
 
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 import { useTheme } from "./context/ThemeContext";
 export default function Home() {
   const { theme } = useTheme();
@@ -8,6 +9,9 @@ export default function Home() {
     <div className={`${theme} transition-colors duration-300`}>
       <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
         <Navbar />
+        <main>
+          <Hero />
+        </main>
       </div>
     </div>
   );
