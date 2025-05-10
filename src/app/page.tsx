@@ -3,6 +3,11 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import { useTheme } from "./context/ThemeContext";
+import HowItWorks from "./components/HowItWorks";
+import WhyChooseUs from "./components/WhyChooseUs";
+import Testimonials from "./components/CustomersTestimonials";
+import ContactForm from "./components/Contact";
+import Footer from "./components/Footer";
 export default function Home() {
   const { theme } = useTheme();
   return (
@@ -11,7 +16,12 @@ export default function Home() {
         <Navbar />
         <main>
           <Hero />
+          <HowItWorks />
+          <WhyChooseUs />
+          <Testimonials />
+          <ContactForm />
         </main>
+        <Footer />
       </div>
     </div>
   );

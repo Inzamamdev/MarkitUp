@@ -4,15 +4,15 @@ import { TrendingUp, CheckCircle, DollarSign } from "lucide-react";
 const Hero = () => {
   return (
     <section className="bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 pt-16 pb-24 md:pt-24 md:pb-32">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between">
+      <div className="mx-auto px-4 max-w-7xl">
+        <div className="flex flex-col md:flex-row items-center justify-between ">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="md:w-1/2 mb-10 md:mb-0"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-gray-900 dark:text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-14 text-gray-900 dark:text-white">
               Turn Unused Software Licenses into{" "}
               <span className="text-blue-600 dark:text-blue-400">Revenue</span>
             </h1>
@@ -23,13 +23,13 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
-                className="btn-accent text-center sm:text-left"
+                className="items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 text-center sm:text-left bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500"
               >
                 Sell My Licenses
               </a>
               <a
                 href="#how-it-works"
-                className="btn-secondary text-center sm:text-left"
+                className="items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 text-center sm:text-left bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 focus:ring-gray-400"
               >
                 Learn More
               </a>
