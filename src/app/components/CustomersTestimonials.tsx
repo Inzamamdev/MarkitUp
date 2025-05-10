@@ -70,7 +70,7 @@ const Testimonials = () => {
             >
               <div className="flex items-center mb-4">{renderStars()}</div>
               <blockquote className="text-lg text-gray-700 dark:text-gray-300 mb-6 italic">
-                "{testimonial.quote}"
+                {testimonial.quote}
               </blockquote>
               <div className="flex items-center">
                 <img
