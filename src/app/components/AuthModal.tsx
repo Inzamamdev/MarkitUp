@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext";
 import Input from "./input/Input";
 import Label from "./input/Label";
 import ErrorMessage from "./input/Error";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 type AuthForm = {
   email: string;
   password: string;
