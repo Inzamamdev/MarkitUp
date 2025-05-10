@@ -50,7 +50,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-4">
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="cursor-pointer p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 aria-label={
                   theme === "dark"
                     ? "Switch to light mode"
@@ -61,11 +61,17 @@ const Navbar = () => {
               </button>
 
               {user ? (
-                <button onClick={signOut} className="btn-secondary">
+                <button
+                  onClick={signOut}
+                  className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 focus:ring-gray-400"
+                >
                   Sign Out
                 </button>
               ) : (
-                <button onClick={toggleAuthModal} className="btn-primary">
+                <button
+                  onClick={toggleAuthModal}
+                  className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500"
+                >
                   Get Started
                 </button>
               )}

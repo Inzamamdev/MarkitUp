@@ -3,7 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { X } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
-
+import Input from "./input/Input";
+import Label from "./input/Label";
+import ErrorMessage from "./input/Error";
+import toast, { Toaster } from "react-hot-toast";
 type AuthForm = {
   email: string;
   password: string;
@@ -32,10 +35,12 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
       await signIn(data.email, data.password);
     } else {
       await signUp(data.email, data.password);
-    }
-
-    if (!error) {
-      onClose();
+      if (!error) {
+        toast("Check your mail for SignIn", {
+          duration: 4000,
+          position: "top-center",
+        });
+      }
     }
   };
 
@@ -84,54 +89,40 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
               )}
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                <div>
-                  <label htmlFor="email" className="label">
-                    Email Address
-                  </label>
-                  <input
+                <div className="mb-4">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input
                     id="email"
                     type="email"
-                    className={`input ${
-                      errors.email ? "border-red-500 focus:ring-red-500" : ""
-                    }`}
-                    {...register("email", {
+                    register={register}
+                    registerOptions={{
                       required: "Email is required",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                         message: "Invalid email address",
                       },
-                    })}
+                    }}
+                    error={errors.email}
                   />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.email.message}
-                    </p>
-                  )}
+                  <ErrorMessage error={errors.email} />
                 </div>
 
-                <div>
-                  <label htmlFor="password" className="label">
-                    Password
-                  </label>
-                  <input
+                <div className="mb-4">
+                  <Label htmlFor="password">Password *</Label>
+                  <Input
                     id="password"
                     type="password"
-                    className={`input ${
-                      errors.password ? "border-red-500 focus:ring-red-500" : ""
-                    }`}
-                    {...register("password", {
+                    register={register}
+                    registerOptions={{
                       required: "Password is required",
                       minLength: {
                         value: 6,
                         message: "Password must be at least 6 characters",
                       },
-                    })}
+                    }}
+                    error={errors.password}
                   />
-                  {errors.password && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.password.message}
-                    </p>
-                  )}
+                  <ErrorMessage error={errors.password} />
                 </div>
 
                 <button

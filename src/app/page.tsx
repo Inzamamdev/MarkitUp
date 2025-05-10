@@ -8,6 +8,8 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Testimonials from "./components/CustomersTestimonials";
 import ContactForm from "./components/Contact";
 import Footer from "./components/Footer";
+import ChatWidget from "./components/ChatWidget";
+
 export default function Home() {
   const { theme } = useTheme();
   return (
@@ -22,6 +24,7 @@ export default function Home() {
           <ContactForm />
         </main>
         <Footer />
+        <ChatWidget />
       </div>
     </div>
   );
