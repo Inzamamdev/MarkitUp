@@ -2,17 +2,13 @@ import { useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
-import { useAuth } from "../context/AuthContext";
-import AuthModal from "./AuthModal";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
   const { theme, toggleTheme } = useTheme();
-  const { user, signOut } = useAuth();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleAuthModal = () => setIsAuthModalOpen(!isAuthModalOpen);
 
   const navLinks = [
     { name: "How It Works", href: "#how-it-works" },
@@ -58,21 +54,9 @@ const Navbar = () => {
                 {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
               </button>
 
-              {user ? (
-                <button
-                  onClick={signOut}
-                  className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 focus:ring-gray-400"
-                >
-                  Sign Out
-                </button>
-              ) : (
-                <button
-                  onClick={toggleAuthModal}
-                  className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500"
-                >
-                  Get Started
-                </button>
-              )}
+              <button className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500">
+                Get Started
+              </button>
             </div>
           </div>
 
@@ -118,29 +102,18 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            {user ? (
-              <button
-                onClick={signOut}
-                className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 focus:ring-gray-400 w-full"
-              >
-                Sign Out
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  toggleAuthModal();
-                }}
-                className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500 w-full"
-              >
-                Get Started
-              </button>
-            )}
+
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+              }}
+              className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500 w-full"
+            >
+              Get Started
+            </button>
           </div>
         </motion.div>
       )}
-
-      <AuthModal isOpen={isAuthModalOpen} onClose={toggleAuthModal} />
     </nav>
   );
 };
