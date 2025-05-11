@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Softsell - Single Page Marketing Website
 
-## Getting Started
+Softsell is a modern and sleek single-page marketing website built using **Next.js** and **TypeScript**, with a strong emphasis on performance, SEO, and user experience. It features light/dark theming, smooth animations, a responsive layout, and a mock chat widget—making it a perfect starter for SaaS landing pages or marketing campaigns.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) with [TypeScript](https://www.typescriptlang.org/) – chosen for SEO-friendliness and performance
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) – utility-first, responsive design
+- **Animations:** [Framer Motion](https://www.framer.com/motion/) – smooth and visually appealing transitions
+- **Chat Widget:** Mock chat widget (due to free-tier limitations of OpenAI API)
+- **Theming:** Light/Dark mode toggle
+- **Assets:** Custom logo and favicon
+- **Responsive Design:** Fully mobile-friendly
+
+## ✨ Features
+
+- 💬 **Chat Widget** – Integrated mock chat system to simulate support chat
+- 🌗 **Light & Dark Themes** – User toggleable with system preference support
+- 🎨 **Smooth Animations** – Powered by Framer Motion
+- 📱 **Mobile Responsive** – Tailored for all screen sizes
+- 🧠 **SEO-Optimized** – Thanks to Next.js SSR capabilities
+- 🖼️ **Branding** – Custom logo and favicon included
+
+## 📦 Getting Started
+
+### 1. Clone the repository
 
 ```bash
+git clone https://github.com/yourusername/softsell.git
+cd my-app
+
+npm install
+# or
+yarn install
+
+
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
