@@ -7,7 +7,7 @@ import Input from "./input/Input";
 import Label from "./input/Label";
 import ErrorMessage from "./input/Error";
 import toast from "react-hot-toast";
-import Link from "next/link";
+
 type AuthForm = {
   email: string;
   password: string;
@@ -34,6 +34,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const onSubmit = async (data: AuthForm) => {
     if (isLogin) {
       await signIn(data.email, data.password);
+      if (!error) {
+        toast.success("SignIn Successful", {
+          duration: 4000,
+          position: "top-center",
+        });
+        onClose();
+      }
     } else {
       await signUp(data.email, data.password);
 
@@ -146,13 +153,12 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   {isLogin
                     ? "Don't have an account?"
                     : "Already have an account?"}
-                  <Link
-                    href={isLogin ? "/" : ""}
-                    className="ml-1 text-blue-600 dark:text-blue-400 hover:underline"
+                  <button
                     onClick={toggleAuthMode}
+                    className="ml-1 text-blue-600 dark:text-blue-400 hover:underline"
                   >
                     {isLogin ? "Sign Up" : "Sign In"}
-                  </Link>
+                  </button>
                 </p>
               </div>
             </motion.div>
