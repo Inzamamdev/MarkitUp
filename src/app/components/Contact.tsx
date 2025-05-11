@@ -24,16 +24,11 @@ const ContactForm = () => {
     reset,
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form data:", data);
-    // In a real app, you would send this data to your backend
-
-    // Simulate success response
+  const onSubmit = () => {
     setTimeout(() => {
       setIsSubmitted(true);
       reset();
 
-      // Reset the success message after a delay
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);

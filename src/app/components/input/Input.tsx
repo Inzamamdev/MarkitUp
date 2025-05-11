@@ -1,19 +1,25 @@
-import { FieldError, RegisterOptions, UseFormRegister } from "react-hook-form";
+import {
+  FieldError,
+  RegisterOptions,
+  UseFormRegister,
+  FieldValues,
+  Path,
+} from "react-hook-form";
 
-interface InputProps {
-  id: string;
+export interface InputProps<T extends FieldValues> {
+  id: Path<T>;
   type?: string; // For input type (e.g., text, email) or textarea
   label?: string; // Optional for accessibility
   placeholder?: string;
   className?: string;
   options?: string[]; // For select dropdowns
   rows?: number; // For textarea
-  register: UseFormRegister<any>;
-  registerOptions?: RegisterOptions;
+  register: UseFormRegister<T>;
+  registerOptions?: RegisterOptions<T>;
   error?: FieldError;
 }
 
-export default function Input({
+export default function Input<T extends FieldValues>({
   id,
   type = "text",
   label,
@@ -24,7 +30,7 @@ export default function Input({
   register,
   registerOptions,
   error,
-}: InputProps) {
+}: InputProps<T>) {
   const baseStyles =
     "w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition duration-200";
   const errorStyles = error ? "border-red-500 focus:ring-red-500" : "";

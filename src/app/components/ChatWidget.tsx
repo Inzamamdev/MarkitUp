@@ -94,7 +94,7 @@ const ChatWidget = () => {
       {/* Chat toggle button */}
       <button
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-lg z-20 transition-all"
+        className="cursor-pointer fixed bottom-6 right-6 w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-lg z-20 transition-all"
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
       </button>
@@ -139,10 +139,10 @@ const ChatWidget = () => {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="flex-grow flex flex-col"
+                  className="flex-grow flex flex-col max-h-full"
                 >
                   {/* Messages container */}
-                  <div className="flex-grow p-4 overflow-y-auto">
+                  <div className="flex-grow p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                     {messages.map((msg, index) => (
                       <div
                         key={index}

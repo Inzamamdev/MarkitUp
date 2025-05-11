@@ -7,6 +7,7 @@ import Input from "./input/Input";
 import Label from "./input/Label";
 import ErrorMessage from "./input/Error";
 import toast from "react-hot-toast";
+
 type AuthForm = {
   email: string;
   password: string;
@@ -29,17 +30,26 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const toggleAuthMode = () => {
     setIsLogin(!isLogin);
   };
-
+  console.log(error);
   const onSubmit = async (data: AuthForm) => {
     if (isLogin) {
       await signIn(data.email, data.password);
-    } else {
-      await signUp(data.email, data.password);
       if (!error) {
-        toast("Check your mail for SignIn", {
+        toast.success("SignIn Successful", {
           duration: 4000,
           position: "top-center",
         });
+        onClose();
+      }
+    } else {
+      await signUp(data.email, data.password);
+
+      if (!error) {
+        toast.success("Check your mail for SignIn", {
+          duration: 4000,
+          position: "top-center",
+        });
+        onClose();
       }
     }
   };

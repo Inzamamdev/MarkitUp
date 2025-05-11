@@ -47,7 +47,8 @@ const WhyChooseUs = () => {
             <span className="text-blue-600 dark:text-blue-400">SoftSell</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We've built the most trusted platform for software license reselling
+            We have built the most trusted platform for software license
+            reselling
           </p>
         </motion.div>
 

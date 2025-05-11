@@ -15,7 +15,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    // Check for saved theme preference or use browser preference
     const savedTheme = localStorage.getItem("theme") as Theme | null;
     if (savedTheme) {
       return savedTheme;
@@ -26,10 +25,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   });
 
   useEffect(() => {
-    // Update localStorage when theme changes
     localStorage.setItem("theme", theme);
 
-    // Update document class for Tailwind dark mode
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
