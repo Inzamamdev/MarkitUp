@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "../utils/supabase";
-
+import toast from "react-hot-toast";
 interface AuthContextType {
   session: Session | null;
   user: User | null;
@@ -23,14 +23,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
     });
 
-    // Listen for auth changes
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -81,6 +79,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       setLoading(true);
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
+      toast.success("SignOut Successful", {
+        duration: 4000,
+        position: "top-center",
+      });
     } catch (error) {
       setError((error as Error).message);
     } finally {

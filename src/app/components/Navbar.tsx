@@ -122,7 +122,10 @@ const Navbar = () => {
               </a>
             ))}
             {user ? (
-              <button onClick={signOut} className="btn-secondary w-full">
+              <button
+                onClick={signOut}
+                className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 focus:ring-gray-400 w-full"
+              >
                 Sign Out
               </button>
             ) : (
@@ -131,7 +134,7 @@ const Navbar = () => {
                   setIsMenuOpen(false);
                   toggleAuthModal();
                 }}
-                className="btn-primary w-full"
+                className="cursor-pointer items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500 w-full"
               >
                 Get Started
               </button>
