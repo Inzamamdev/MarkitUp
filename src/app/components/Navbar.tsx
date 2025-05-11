@@ -25,7 +25,6 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-sm">
       <div className=" max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <a href="#" className="flex items-center space-x-2">
             <img src="/logo.svg" alt="SoftSell Logo" className="h-10 w-10" />
             <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
@@ -33,7 +32,6 @@ const Navbar = () => {
             </span>
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex space-x-6">
               {navLinks.map((link) => (
@@ -101,7 +99,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {isMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -143,7 +140,6 @@ const Navbar = () => {
         </motion.div>
       )}
 
-      {/* Auth Modal */}
       <AuthModal isOpen={isAuthModalOpen} onClose={toggleAuthModal} />
     </nav>
   );
